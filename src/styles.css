@@ -1,0 +1,64 @@
+:root {
+  --wingle-primary: #00b4b4;
+  --wingle-secondary: #007a7a;
+}
+.btn-wingle {
+  background-color: var(--wingle-primary);
+  color: white;
+  border-color: var(--wingle-primary);
+}
+
+.btn-wingle:hover {
+  background-color: var(--wingle-secondary);
+  color: white;
+  border-color: var(--wingle-secondary);
+  transition: all 0.5s;
+}
+
+.btn-wingle:focus,
+.btn-wingle.focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 180, 180, 0.5);
+}
+
+.btn-wingle:disabled,
+.btn-wingle.disabled {
+  background-color: var(--wingle-secondary);
+  border-color: var(--wingle-secondary);
+  opacity: 0.65;
+}
+
+.btn-wingle:not(:disabled):not(.disabled):active,
+.btn-wingle:not(:disabled):not(.disabled).active,
+.show > .btn-wingle.dropdown-toggle {
+  background-color: var(--wingle-secondary);
+  border-color: var(--wingle-secondary);
+  color: white;
+}
+
+.btn-wingle:not(:disabled):not(.disabled):active:focus,
+.btn-wingle:not(:disabled):not(.disabled).active:focus,
+.show > .btn-wingle.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 180, 180, 0.5);
+}
+
+/* base para o checkbox */
+input[type="checkbox"].wingle-checkbox {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--wingle-secondary);
+  border-radius: 3px;
+  position: relative;
+  background-color: white;
+}
+
+/* checkbox marcado */
+input[type="checkbox"].wingle-checkbox:checked {
+  background-color: var(--wingle-primary);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" fill="none" stroke="white" stroke-width="2"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+}

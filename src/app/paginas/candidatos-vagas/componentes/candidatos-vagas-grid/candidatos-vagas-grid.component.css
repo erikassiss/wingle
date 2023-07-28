@@ -1,0 +1,25 @@
+.nav-link {
+    color: #007a7a;
+}
+
+#grupo-tabs {
+    margin: 3%;
+    padding-left: 0%;
+    display: inline
+}
+
+div .card{
+    border-color: var(--wingle-primary);
+    border-width: 2px;
+    margin: 0.1em;
+    color: var(--wingle-secondary)
+}
+
+.card-body{
+    display: flex;
+    justify-content: space-between;
+}
+
+span{
+    font-weight: bolder;
+}

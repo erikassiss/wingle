@@ -1,0 +1,79 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="filters-sidebar">
+        <h5>Filtros</h5>
+        <form>
+          <div class="container search-container">
+            <label id="search-label" for="search">Pesquisar</label>
+            <input
+              [(ngModel)]="searchTerm"
+              (input)="applyFilters()"
+              class="form-control mb-4 input-wingle"
+              placeholder="Digite um nome ou e-mail"
+              name="search"
+            />
+          </div>
+          <div class="button-container">
+            <button
+              class="btn btn-wingle btn-span"
+              *ngFor="let filter of filters"
+              [class.active]="filter.value"
+              (click)="toggleFilter(filter)"
+            >
+              {{ filter.label }}
+              <span class="badge">{{ countCandidates(filter.key) }}</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="px-1">
+            <tr>
+              <th rowspan="2">Nome</th>
+              <th rowspan="2">Email</th>
+              <th rowspan="2">Novo</th>
+              <th rowspan="2">Shortlist</th>
+              <th rowspan="2">Standby</th>
+              <th rowspan="2">Proposta</th>
+              <th rowspan="2">Eliminado</th>
+              <th class="custom-group" colspan="4">Entrevista</th>
+            </tr>
+            <tr>
+              <th>RH</th>
+              <th>Líder</th>
+              <th>Gestor</th>
+              <th>Equipe</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let candidate of filteredCandidates; let i = index"
+              [ngClass]="{ 'bg-white': i % 2 === 0, 'bg-teal': i % 2 === 1 }"
+              style="color: #000000 !important"
+            >
+              <td
+                class="name-column info-column text-ellipsis"
+                [title]="candidate.first_name + ' ' + candidate.last_name"
+              >
+                {{ candidate.first_name }} {{ candidate.last_name }}
+              </td>
+              <td class="info-column text-ellipsis" [title]="candidate.email">
+                {{ candidate.email }}
+              </td>
+              <td class="checkbox-cell" *ngFor="let column of checkboxColumns">
+                <wingle-checkbox
+                  [isChecked]="candidate[column]"
+                  [isDisabled]="false"
+                ></wingle-checkbox>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
